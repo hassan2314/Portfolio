@@ -102,119 +102,123 @@ export default function Contact() {
           >
             Have a question or want to work together? Feel free to reach out!
           </Typography>
-          <div className=" flex flex-col md:flex-row">
-            <Grid container spacing={4} justifyContent="center">
-              <Grid item xs={12} md={5}>
-                <motion.div
-                  initial={{ x: -50, opacity: 0 }}
-                  animate={inView ? { x: 0, opacity: 1 } : {}}
-                  transition={{ duration: 0.5 }}
+
+          <Grid
+            container
+            spacing={4}
+            justifyContent="center"
+            alignItems="stretch"
+          >
+            {/* Contact Information Column */}
+            <Grid item xs={12} md={5}>
+              <motion.div
+                initial={{ x: -50, opacity: 0 }}
+                animate={inView ? { x: 0, opacity: 1 } : {}}
+                transition={{ duration: 0.5 }}
+                style={{ height: "100%" }}
+              >
+                <Paper
+                  elevation={3}
+                  sx={{
+                    p: 4,
+                    height: "100%",
+                    backgroundColor: darkMode
+                      ? theme.palette.grey[800]
+                      : "white",
+                    transition: "all 0.3s ease",
+                    border: "1px solid",
+                    borderColor: darkMode
+                      ? theme.palette.grey[700]
+                      : theme.palette.grey[200],
+                    borderRadius: "12px",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
                 >
-                  <Paper
-                    elevation={3}
+                  <Typography
+                    variant="h5"
+                    gutterBottom
                     sx={{
-                      p: 4,
-                      height: "100%",
-                      backgroundColor: darkMode
-                        ? theme.palette.grey[800]
-                        : "white",
-                      transition: "all 0.3s ease",
-                      border: "1px solid",
-                      borderColor: darkMode
-                        ? theme.palette.grey[700]
-                        : theme.palette.grey[200],
-                      borderRadius: "12px",
+                      fontWeight: "bold",
+                      mb: 3,
+                      color: darkMode
+                        ? theme.palette.primary.light
+                        : theme.palette.primary.dark,
                     }}
                   >
-                    <Typography
-                      variant="h5"
-                      gutterBottom
-                      sx={{
-                        fontWeight: "bold",
-                        mb: 3,
-                        color: darkMode
-                          ? theme.palette.primary.light
-                          : theme.palette.primary.dark,
-                      }}
-                    >
-                      Contact Information
-                    </Typography>
+                    Contact Information
+                  </Typography>
 
-                    <Box sx={{ mb: 3 }}>
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", mb: 2 }}
+                  <Box sx={{ mb: 3, flex: 1 }}>
+                    <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                      <Email
+                        color="primary"
+                        sx={{
+                          mr: 2,
+                          color: darkMode
+                            ? theme.palette.secondary.light
+                            : theme.palette.secondary.dark,
+                        }}
+                      />
+                      <Link
+                        href="mailto:hassan87691@gmail.com"
+                        underline="hover"
+                        sx={{
+                          color: darkMode
+                            ? theme.palette.text.primary
+                            : theme.palette.grey[800],
+                        }}
                       >
-                        <Email
-                          color="primary"
-                          sx={{
-                            mr: 2,
-                            color: darkMode
-                              ? theme.palette.secondary.light
-                              : theme.palette.secondary.dark,
-                          }}
-                        />
-                        <Link
-                          href="mailto:hassan87691@gmail.com"
-                          underline="hover"
-                          sx={{
-                            color: darkMode
-                              ? theme.palette.text.primary
-                              : theme.palette.grey[800],
-                          }}
-                        >
-                          hassan87691@gmail.com
-                        </Link>
-                      </Box>
-
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", mb: 2 }}
-                      >
-                        <Phone
-                          color="primary"
-                          sx={{
-                            mr: 2,
-                            color: darkMode
-                              ? theme.palette.secondary.light
-                              : theme.palette.secondary.dark,
-                          }}
-                        />
-                        <Typography
-                          sx={{
-                            color: darkMode
-                              ? theme.palette.text.primary
-                              : theme.palette.grey[800],
-                          }}
-                        >
-                          +92 342 004 2947
-                        </Typography>
-                      </Box>
-
-                      <Box
-                        sx={{ display: "flex", alignItems: "center", mb: 2 }}
-                      >
-                        <LocationOn
-                          color="primary"
-                          sx={{
-                            mr: 2,
-                            color: darkMode
-                              ? theme.palette.secondary.light
-                              : theme.palette.secondary.dark,
-                          }}
-                        />
-                        <Typography
-                          sx={{
-                            color: darkMode
-                              ? theme.palette.text.primary
-                              : theme.palette.grey[800],
-                          }}
-                        >
-                          G-8/4, Islamabad, Pakistan
-                        </Typography>
-                      </Box>
+                        hassan87691@gmail.com
+                      </Link>
                     </Box>
 
-                    <Divider sx={{ my: 3 }} />
+                    <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                      <Phone
+                        color="primary"
+                        sx={{
+                          mr: 2,
+                          color: darkMode
+                            ? theme.palette.secondary.light
+                            : theme.palette.secondary.dark,
+                        }}
+                      />
+                      <Typography
+                        sx={{
+                          color: darkMode
+                            ? theme.palette.text.primary
+                            : theme.palette.grey[800],
+                        }}
+                      >
+                        +92 342 004 2947
+                      </Typography>
+                    </Box>
 
+                    <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+                      <LocationOn
+                        color="primary"
+                        sx={{
+                          mr: 2,
+                          color: darkMode
+                            ? theme.palette.secondary.light
+                            : theme.palette.secondary.dark,
+                        }}
+                      />
+                      <Typography
+                        sx={{
+                          color: darkMode
+                            ? theme.palette.text.primary
+                            : theme.palette.grey[800],
+                        }}
+                      >
+                        G-8/4, Islamabad, Pakistan
+                      </Typography>
+                    </Box>
+                  </Box>
+
+                  <Divider sx={{ my: 3 }} />
+
+                  <Box>
                     <Typography
                       variant="subtitle1"
                       sx={{
@@ -257,115 +261,118 @@ export default function Contact() {
                         <LinkedIn fontSize="large" />
                       </IconButton>
                     </Box>
-                  </Paper>
-                </motion.div>
-              </Grid>
+                  </Box>
+                </Paper>
+              </motion.div>
+            </Grid>
 
-              <Grid item xs={12} md={7}>
-                <motion.div
-                  initial={{ x: 50, opacity: 0 }}
-                  animate={inView ? { x: 0, opacity: 1 } : {}}
-                  transition={{ duration: 0.5, delay: 0.2 }}
+            {/* Contact Form Column */}
+            <Grid item xs={12} md={7}>
+              <motion.div
+                initial={{ x: 50, opacity: 0 }}
+                animate={inView ? { x: 0, opacity: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                style={{ height: "100%" }}
+              >
+                <Paper
+                  elevation={3}
+                  sx={{
+                    p: 4,
+                    height: "100%",
+                    backgroundColor: darkMode
+                      ? theme.palette.grey[800]
+                      : "white",
+                    transition: "all 0.3s ease",
+                    border: "1px solid",
+                    borderColor: darkMode
+                      ? theme.palette.grey[700]
+                      : theme.palette.grey[200],
+                    borderRadius: "12px",
+                  }}
                 >
-                  <Paper
-                    elevation={3}
+                  <Typography
+                    variant="h5"
+                    gutterBottom
                     sx={{
-                      p: 4,
-                      backgroundColor: darkMode
-                        ? theme.palette.grey[800]
-                        : "white",
-                      transition: "all 0.3s ease",
-                      border: "1px solid",
-                      borderColor: darkMode
-                        ? theme.palette.grey[700]
-                        : theme.palette.grey[200],
-                      borderRadius: "12px",
+                      fontWeight: "bold",
+                      mb: 3,
+                      color: darkMode
+                        ? theme.palette.primary.light
+                        : theme.palette.primary.dark,
                     }}
                   >
-                    <Typography
-                      variant="h5"
-                      gutterBottom
+                    Send Me a Message
+                  </Typography>
+
+                  {submitStatus && (
+                    <Alert severity={submitStatus.type} sx={{ mb: 3 }}>
+                      {submitStatus.message}
+                    </Alert>
+                  )}
+
+                  <form onSubmit={handleSubmit}>
+                    <TextField
+                      fullWidth
+                      name="name"
+                      label="Your Name"
+                      variant="outlined"
+                      margin="normal"
+                      required
+                      value={formState.name}
+                      onChange={handleChange}
+                      sx={{ mb: 2 }}
+                    />
+                    <TextField
+                      fullWidth
+                      name="email"
+                      label="Your Email"
+                      variant="outlined"
+                      margin="normal"
+                      required
+                      type="email"
+                      value={formState.email}
+                      onChange={handleChange}
+                      sx={{ mb: 2 }}
+                    />
+                    <TextField
+                      fullWidth
+                      name="message"
+                      label="Your Message"
+                      variant="outlined"
+                      margin="normal"
+                      required
+                      multiline
+                      rows={6}
+                      value={formState.message}
+                      onChange={handleChange}
+                      sx={{ mb: 3 }}
+                    />
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      color="primary"
+                      size="large"
+                      endIcon={<Send />}
                       sx={{
-                        fontWeight: "bold",
-                        mb: 3,
-                        color: darkMode
-                          ? theme.palette.primary.light
-                          : theme.palette.primary.dark,
+                        px: 4,
+                        py: 1.5,
+                        borderRadius: "8px",
+                        textTransform: "none",
+                        fontSize: "1rem",
+                        "&:hover": {
+                          transform: "translateY(-2px)",
+                          boxShadow: 3,
+                        },
+                        transition: "all 0.3s ease",
                       }}
                     >
-                      Send Me a Message
-                    </Typography>
-
-                    {submitStatus && (
-                      <Alert severity={submitStatus.type} sx={{ mb: 3 }}>
-                        {submitStatus.message}
-                      </Alert>
-                    )}
-
-                    <form onSubmit={handleSubmit}>
-                      <TextField
-                        fullWidth
-                        name="name"
-                        label="Your Name"
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        value={formState.name}
-                        onChange={handleChange}
-                        sx={{ mb: 2 }}
-                      />
-                      <TextField
-                        fullWidth
-                        name="email"
-                        label="Your Email"
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        type="email"
-                        value={formState.email}
-                        onChange={handleChange}
-                        sx={{ mb: 2 }}
-                      />
-                      <TextField
-                        fullWidth
-                        name="message"
-                        label="Your Message"
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        multiline
-                        rows={6}
-                        value={formState.message}
-                        onChange={handleChange}
-                        sx={{ mb: 3 }}
-                      />
-                      <Button
-                        type="submit"
-                        variant="contained"
-                        color="primary"
-                        size="large"
-                        endIcon={<Send />}
-                        sx={{
-                          px: 4,
-                          py: 1.5,
-                          borderRadius: "8px",
-                          textTransform: "none",
-                          fontSize: "1rem",
-                          "&:hover": {
-                            transform: "translateY(-2px)",
-                            boxShadow: 3,
-                          },
-                          transition: "all 0.3s ease",
-                        }}
-                      >
-                        Send Message
-                      </Button>
-                    </form>
-                  </Paper>
-                </motion.div>
-              </Grid>
+                      Send Message
+                    </Button>
+                  </form>
+                </Paper>
+              </motion.div>
             </Grid>
-          </div>
+          </Grid>
         </motion.div>
       </Box>
     </Box>

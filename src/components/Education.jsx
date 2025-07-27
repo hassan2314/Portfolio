@@ -39,8 +39,8 @@ export default function Education() {
     ],
     achievements: [
       "Graduated with Honors",
-      "Participated in multiple hackathons",
-      "Completed several research projects",
+      "Participated in multiple IT Conferences",
+      "Completed several Internships",
     ],
   };
 
