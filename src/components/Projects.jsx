@@ -61,6 +61,15 @@ export default function Projects() {
       githubLink: "https://github.com/hassan2314/Youtube",
       demoLink: "#",
     },
+  {
+    title: "Mart",
+    subtitle: "Full-Stack Web Application",
+    description:
+      "Modern e-commerce system with modular architecture. Built using React (Vite), Express, and MongoDB with full REST API integration.",
+    technologies: ["React", "Node.js", "Express", "MongoDB"],
+    githubLink: "https://github.com/hassan2314/Mart",
+    demoLink: "#",
+  },
     {
       title: "E-commerce App",
       subtitle: "Online Store",
