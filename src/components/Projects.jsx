@@ -17,7 +17,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { useTheme as useCustomTheme } from "../context/ThemeContext";
 
-const projectIcons = ["🧵", "📝", "✍️", "🎥", "🛒"];
+const projectIcons = ["🎥", "🧵", "📝", "✍️", "🎥", "🛒"];
 
 export default function Projects() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -25,6 +25,23 @@ export default function Projects() {
   const theme = useTheme();
 
   const projects = [
+    {
+      title: "Next Video",
+      subtitle: "Video Sharing Platform",
+      description:
+        "A modern video sharing platform built with Next.js 15 featuring user authentication, video upload, channel management, and secure APIs.",
+      technologies: [
+        "Next.js 15",
+        "React 19",
+        "TypeScript",
+        "MongoDB",
+        "NextAuth.js",
+        "Tailwind CSS v4",
+        "ImageKit",
+      ],
+      githubLink: "https://github.com/hassan2314/next-video",
+      demoLink: "https://next-video-2hm2.vercel.app/",
+    },
     {
       title: "Stitch and Style",
       subtitle: "3D E-commerce Platform",
@@ -61,15 +78,15 @@ export default function Projects() {
       githubLink: "https://github.com/hassan2314/Youtube",
       demoLink: "#",
     },
-  {
-    title: "Mart",
-    subtitle: "Full-Stack Web Application",
-    description:
-      "Modern e-commerce system with modular architecture. Built using React (Vite), Express, and MongoDB with full REST API integration.",
-    technologies: ["React", "Node.js", "Express", "MongoDB"],
-    githubLink: "https://github.com/hassan2314/Mart",
-    demoLink: "#",
-  },
+    {
+      title: "Mart",
+      subtitle: "Full-Stack Web Application",
+      description:
+        "Modern e-commerce system with modular architecture. Built using React (Vite), Express, and MongoDB with full REST API integration.",
+      technologies: ["React", "Node.js", "Express", "MongoDB"],
+      githubLink: "https://github.com/hassan2314/Mart",
+      demoLink: "#",
+    },
     {
       title: "E-commerce App",
       subtitle: "Online Store",
