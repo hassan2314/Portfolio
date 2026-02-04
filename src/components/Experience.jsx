@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import WorkIcon from "@mui/icons-material/Work";
 import { useTheme as useCustomTheme } from "../context/ThemeContext";
+import { monoFontFamily } from "../theme";
 
 export default function Experience() {
   const [ref, inView] = useInView({
@@ -87,7 +88,7 @@ export default function Experience() {
         py: 8,
         px: 3,
         backgroundColor: darkMode
-          ? theme.palette.grey[900]
+          ? theme.palette.grey[800]
           : theme.palette.grey[100],
         transition: "background-color 0.3s ease",
       }}
@@ -97,6 +98,19 @@ export default function Experience() {
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8 }}
       >
+        <Typography
+          component="span"
+          sx={{
+            display: "block",
+            textAlign: "center",
+            fontFamily: monoFontFamily,
+            fontSize: "0.8rem",
+            color: theme.palette.primary.main,
+            mb: 1,
+          }}
+        >
+          // experience
+        </Typography>
         <Typography
           variant="h4"
           align="center"

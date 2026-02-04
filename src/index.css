@@ -31,3 +31,31 @@ html {
 .MuiLinearProgress-bar {
   border-radius: 4px;
 }
+
+/* Code-like selection color */
+::selection {
+  background: rgba(0, 212, 170, 0.25);
+}
+
+/* Terminal blinking cursor */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: currentColor;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+/* Focus states for accessibility */
+a.MuiButton-root:focus-visible,
+.MuiIconButton-root:focus-visible {
+  outline: 2px solid rgba(0, 212, 170, 0.6);
+  outline-offset: 2px;
+}
