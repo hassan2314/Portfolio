@@ -32,7 +32,7 @@ export default function Projects() {
       description:
         "Complete books web app with authentication, book listings, detail pages, user bookmarks, and full admin panel. Implemented efficient pagination, advanced filters (publisher/date/category), fuzzy search, and optimized DB queries with indexing. Structured backend (Nest.js + PostgreSQL + Prisma) and frontend (Next.js) in a modular, scalable architecture.",
       technologies: ["Next.js", "PostgreSQL", "Prisma", "Node.js", "Nest.js"],
-      githubLink: "https://github.com/hassan2314/read-maududi",
+      githubLink: "https://github.com/hassan2314",
       demoLink: "https://www.readmaududi.com/",
     },
     {
@@ -42,7 +42,7 @@ export default function Projects() {
         "Modern educational platform using Next.js 15 and React 19 with Tailwind CSS v4 and Framer Motion for smooth UI animations. Implemented modular component architecture, responsive layouts, dynamic visual effects, and optimized performance using Turbopack and TypeScript.",
       technologies: ["Next.js 15", "React 19", "Tailwind CSS v4", "Framer Motion", "TypeScript"],
       githubLink: "https://github.com/hassan2314/next-school",
-      demoLink: "#",
+      demoLink: "https://next-school-pi.vercel.app/",
     },
     {
       title: "ChatAI",
@@ -51,7 +51,7 @@ export default function Projects() {
         "Lightweight AI chat app using Next.js 15 + React 19 with Groq API integration, MUI components, Markdown rendering, and syntax highlighting. Deployed on Vercel with Turbopack optimization.",
       technologies: ["Next.js", "Groq", "React", "MUI"],
       githubLink: "https://github.com/hassan2314/chatai",
-      demoLink: "#",
+      demoLink: "https://chat-ai-nu-topaz.vercel.app/",
     },
     {
       title: "Next Video",
