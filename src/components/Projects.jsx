@@ -16,6 +16,7 @@ import CodeIcon from "@mui/icons-material/Code";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { useTheme as useCustomTheme } from "../context/ThemeContext";
+import { monoFontFamily } from "../theme";
 
 const projectIcons = ["📚", "🏫", "💬", "🎥", "🧵", "📝", "✍️", "🎥", "🛒"];
 
@@ -32,7 +33,7 @@ export default function Projects() {
         "Complete books web app with authentication, book listings, detail pages, user bookmarks, and full admin panel. Implemented efficient pagination, advanced filters (publisher/date/category), fuzzy search, and optimized DB queries with indexing. Structured backend (Nest.js + PostgreSQL + Prisma) and frontend (Next.js) in a modular, scalable architecture.",
       technologies: ["Next.js", "PostgreSQL", "Prisma", "Node.js", "Nest.js"],
       githubLink: "https://github.com/hassan2314/read-maududi",
-      demoLink: "#",
+      demoLink: "https://www.readmaududi.com/",
     },
     {
       title: "Next School",
@@ -123,16 +124,42 @@ export default function Projects() {
       sx={{
         py: 8,
         px: { xs: 2, sm: 4, md: 6 },
-        backgroundColor: darkMode ? theme.palette.grey[900] : "#f8fafc",
+        backgroundColor: darkMode ? theme.palette.grey[900] : theme.palette.grey[50],
         transition: "background-color 0.3s ease",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
-      <Box sx={{ maxWidth: "1400px", mx: "auto" }}>
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: `
+            linear-gradient(rgba(0, 212, 170, 0.02) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 212, 170, 0.02) 1px, transparent 1px)
+          `,
+          backgroundSize: "32px 32px",
+        }}
+      />
+      <Box sx={{ maxWidth: "1400px", mx: "auto", position: "relative", zIndex: 1 }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
+          <Typography
+            component="span"
+            sx={{
+              display: "block",
+              textAlign: "center",
+              fontFamily: monoFontFamily,
+              fontSize: "0.8rem",
+              color: theme.palette.primary.main,
+              mb: 1,
+            }}
+          >
+            // projects
+          </Typography>
           <Typography
             variant="h3"
             align="center"
@@ -176,98 +203,99 @@ export default function Projects() {
             challenges and learning opportunities.
           </Typography>
 
-          <Grid container spacing={4} justifyContent="center">
-            {projects.map((project, index) => (
-              <Grid item key={index} xs={12} sm={6} md={4}>
-                <Box sx={{ height: "100%" }}>
-                  <motion.div
-                    initial={{ scale: 0.95, opacity: 0, y: 20 }}
-                    animate={inView ? { scale: 1, opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay: index * 0.15 }}
-                    whileHover={{
-                      y: -5,
-                      transition: { duration: 0.2 },
-                    }}
-                    style={{ height: "100%", width: "80vw" }}
-                  >
-                    <Card
-                      sx={{
-                        height: "100%",
-                        display: "flex",
-                        flexDirection: "column",
-                        backgroundColor: darkMode
-                          ? theme.palette.grey[800]
-                          : "white",
-                        transition: "all 0.3s ease",
-                        border: "1px solid",
-                        borderColor: darkMode
-                          ? theme.palette.grey[700]
-                          : theme.palette.grey[200],
-                        borderRadius: "12px",
-                        overflow: "hidden",
-                        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.05)",
-                        "&:hover": {
-                          boxShadow: darkMode
-                            ? "0 10px 25px rgba(0, 0, 0, 0.2)"
-                            : "0 10px 25px rgba(0, 0, 0, 0.1)",
-                          borderColor: darkMode
-                            ? theme.palette.primary.dark
-                            : theme.palette.primary.light,
-                        },
+          {/* Bento: first 2 projects span 2 cols (md=6), rest md=4 */}
+          <Grid container spacing={3} justifyContent="center">
+            {projects.map((project, index) => {
+              const isFeatured = index < 2;
+              return (
+                <Grid item key={index} xs={12} sm={6} md={isFeatured ? 6 : 4}>
+                  <Box sx={{ height: "100%" }}>
+                    <motion.div
+                      initial={{ scale: 0.95, opacity: 0, y: 20 }}
+                      animate={inView ? { scale: 1, opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      whileHover={{
+                        y: -6,
+                        transition: { duration: 0.2 },
                       }}
+                      style={{ height: "100%" }}
                     >
-                      <Box
+                      <Card
                         sx={{
-                          p: 3,
+                          height: "100%",
+                          display: "flex",
+                          flexDirection: "column",
                           backgroundColor: darkMode
-                            ? theme.palette.grey[700]
-                            : theme.palette.grey[100],
-                          borderBottom: "1px solid",
+                            ? theme.palette.grey[800]
+                            : "white",
+                          transition: "all 0.3s ease",
+                          border: "2px solid",
                           borderColor: darkMode
-                            ? theme.palette.grey[600]
+                            ? theme.palette.grey[700]
                             : theme.palette.grey[200],
-                          textAlign: "center",
+                          borderRadius: "8px",
+                          overflow: "hidden",
+                          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.06)",
+                          "&:hover": {
+                            boxShadow: `0 12px 28px ${theme.palette.primary.main}25`,
+                            borderColor: theme.palette.primary.main,
+                          },
                         }}
                       >
-                        <Avatar
+                        <Box
                           sx={{
-                            width: 80,
-                            height: 80,
-                            mx: "auto",
-                            mb: 2,
-                            fontSize: "2.5rem",
+                            p: 3,
                             backgroundColor: darkMode
-                              ? theme.palette.primary.dark
-                              : theme.palette.primary.light,
-                            color: "white",
+                              ? theme.palette.grey[700]
+                              : theme.palette.grey[100],
+                            borderBottom: "1px solid",
+                            borderColor: darkMode
+                              ? theme.palette.grey[600]
+                              : theme.palette.grey[200],
+                            textAlign: "center",
                           }}
                         >
-                          {projectIcons[index]}
-                        </Avatar>
-                        <Typography
-                          variant="h5"
-                          component="h2"
-                          sx={{
-                            fontWeight: "bold",
-                            color: darkMode
-                              ? theme.palette.primary.light
-                              : theme.palette.primary.dark,
-                          }}
-                        >
-                          {project.title}
-                        </Typography>
-                        <Typography
-                          variant="subtitle1"
-                          sx={{
-                            color: darkMode
-                              ? theme.palette.text.secondary
-                              : theme.palette.text.primary,
-                            mb: 1,
-                          }}
-                        >
-                          {project.subtitle}
-                        </Typography>
-                      </Box>
+                          <Avatar
+                            sx={{
+                              width: 80,
+                              height: 80,
+                              mx: "auto",
+                              mb: 2,
+                              fontSize: "2.5rem",
+                              backgroundColor: darkMode
+                                ? theme.palette.primary.dark
+                                : theme.palette.primary.light,
+                              color: "white",
+                            }}
+                          >
+                            {projectIcons[index]}
+                          </Avatar>
+                          <Typography
+                            variant="h5"
+                            component="h2"
+                            sx={{
+                              fontWeight: "bold",
+                              color: darkMode
+                                ? theme.palette.primary.light
+                                : theme.palette.primary.dark,
+                              fontFamily: monoFontFamily,
+                              fontSize: "1.1rem",
+                            }}
+                          >
+                            ./ {project.title}
+                          </Typography>
+                          <Typography
+                            variant="subtitle1"
+                            sx={{
+                              color: darkMode
+                                ? theme.palette.text.secondary
+                                : theme.palette.text.primary,
+                              mb: 1,
+                            }}
+                          >
+                            {project.subtitle}
+                          </Typography>
+                        </Box>
 
                       <CardContent sx={{ flexGrow: 1, p: 3 }}>
                         <Typography
@@ -289,13 +317,12 @@ export default function Projects() {
                             variant="subtitle2"
                             sx={{
                               mb: 1,
-                              color: darkMode
-                                ? theme.palette.text.secondary
-                                : theme.palette.text.primary,
-                              fontWeight: "bold",
+                              fontFamily: monoFontFamily,
+                              fontSize: "0.75rem",
+                              color: theme.palette.primary.main,
                             }}
                           >
-                            Technologies Used:
+                            # tech
                           </Typography>
                           <Box
                             sx={{
@@ -311,6 +338,8 @@ export default function Projects() {
                                 label={tech}
                                 size="small"
                                 sx={{
+                                  fontFamily: monoFontFamily,
+                                  fontSize: "0.75rem",
                                   backgroundColor: darkMode
                                     ? theme.palette.grey[700]
                                     : theme.palette.grey[200],
@@ -321,7 +350,7 @@ export default function Projects() {
                                   borderColor: darkMode
                                     ? theme.palette.grey[600]
                                     : theme.palette.grey[300],
-                                  fontWeight: "medium",
+                                  fontWeight: 500,
                                 }}
                               />
                             ))}
@@ -386,7 +415,8 @@ export default function Projects() {
                   </motion.div>
                 </Box>
               </Grid>
-            ))}
+            );
+          })}
           </Grid>
         </motion.div>
       </Box>

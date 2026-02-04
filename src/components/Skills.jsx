@@ -1,8 +1,9 @@
-import { Box, Typography, Grid, Chip, useTheme } from "@mui/material";
+import { Box, Typography, Grid, Chip, LinearProgress, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import BuildIcon from "@mui/icons-material/Build";
 import { useTheme as useCustomTheme } from "../context/ThemeContext";
+import { monoFontFamily } from "../theme";
 
 export default function Skills() {
   const [ref, inView] = useInView({
@@ -78,16 +79,39 @@ export default function Skills() {
         py: { xs: 6, md: 10 },
         px: { xs: 2, sm: 3, md: 4 },
         backgroundColor: darkMode
-          ? theme.palette.grey[900]
-          : theme.palette.grey[50],
+          ? theme.palette.grey[800]
+          : theme.palette.grey[100],
         transition: "background-color 0.3s ease",
+        position: "relative",
       }}
     >
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0, 212, 170, 0.04) 1px, transparent 0)",
+          backgroundSize: "24px 24px",
+        }}
+      />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6 }}
+        style={{ position: "relative", zIndex: 1 }}
       >
+        <Typography
+          component="span"
+          sx={{
+            display: "block",
+            textAlign: "center",
+            fontFamily: monoFontFamily,
+            fontSize: "0.8rem",
+            color: theme.palette.primary.main,
+            mb: 2,
+          }}
+        >
+          // skills
+        </Typography>
         <Box sx={{ textAlign: "center", mb: { xs: 4, md: 6 } }}>
           <Box
             sx={{
@@ -134,114 +158,111 @@ export default function Skills() {
           </Typography>
         </Box>
 
+        {/* Bento: first 2 categories span 2 cols (md=6), rest md=4 */}
         <Grid container spacing={3} justifyContent="center" sx={{ maxWidth: 1200, mx: "auto" }}>
-          {skillCategories.map((category, index) => (
-            <Grid item key={index} xs={12} sm={6} md={4}>
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-              >
-                <Box
-                  sx={{
-                    height: "100%",
-                    p: 3,
-                    borderRadius: 3,
-                    border: "1px solid",
-                    borderColor: darkMode
-                      ? theme.palette.grey[700]
-                      : theme.palette.grey[200],
-                    backgroundColor: darkMode
-                      ? theme.palette.grey[800]
-                      : "white",
-                    transition: "all 0.25s ease",
-                    "&:hover": {
-                      borderColor: darkMode
-                        ? theme.palette.primary.dark
-                        : theme.palette.primary.light,
-                      boxShadow: darkMode
-                        ? `0 8px 32px rgba(0,0,0,0.24)`
-                        : `0 8px 32px ${theme.palette.primary.main}14`,
-                    },
-                  }}
+          {skillCategories.map((category, index) => {
+            const isWide = index < 2;
+            return (
+              <Grid item key={index} xs={12} sm={6} md={isWide ? 6 : 4}>
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: index * 0.08 }}
                 >
                   <Box
                     sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 1.5,
-                      mb: 2,
-                      pb: 1.5,
-                      borderBottom: "1px solid",
+                      height: "100%",
+                      p: 3,
+                      borderRadius: 2,
+                      border: "1px solid",
                       borderColor: darkMode
                         ? theme.palette.grey[700]
                         : theme.palette.grey[200],
+                      backgroundColor: darkMode
+                        ? theme.palette.grey[800]
+                        : "white",
+                      transition: "all 0.25s ease",
+                      "&:hover": {
+                        borderColor: theme.palette.primary.main,
+                        boxShadow: `0 8px 24px ${theme.palette.primary.main}20`,
+                      },
                     }}
                   >
                     <Box
-                      component="span"
                       sx={{
-                        fontSize: "1.5rem",
-                        lineHeight: 1,
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 1.5,
+                        mb: 2,
+                        pb: 1.5,
+                        borderBottom: "1px solid",
+                        borderColor: darkMode
+                          ? theme.palette.grey[700]
+                          : theme.palette.grey[200],
                       }}
                     >
-                      {category.icon}
-                    </Box>
-                    <Typography
-                      variant="subtitle1"
-                      sx={{
-                        fontWeight: 600,
-                        color: darkMode
-                          ? theme.palette.text.primary
-                          : theme.palette.grey[800],
-                        letterSpacing: "0.02em",
-                      }}
-                    >
-                      {category.name}
-                    </Typography>
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexWrap: "wrap",
-                      gap: 1,
-                    }}
-                  >
-                    {category.skills.map((skill, i) => (
-                      <Chip
-                        key={i}
-                        label={skill.name}
-                        size="small"
+                      <Box component="span" sx={{ fontSize: "1.25rem", lineHeight: 1 }}>
+                        {category.icon}
+                      </Box>
+                      <Typography
+                        variant="subtitle1"
                         sx={{
-                          fontWeight: 500,
-                          fontSize: "0.8rem",
-                          height: 28,
-                          backgroundColor: darkMode
-                            ? theme.palette.grey[700]
-                            : theme.palette.grey[100],
+                          fontFamily: monoFontFamily,
+                          fontWeight: 600,
+                          fontSize: "0.9rem",
                           color: darkMode
                             ? theme.palette.text.primary
                             : theme.palette.grey[800],
-                          border: "1px solid",
-                          borderColor: darkMode
-                            ? theme.palette.grey[600]
-                            : theme.palette.grey[300],
-                          "&:hover": {
-                            backgroundColor: darkMode
-                              ? theme.palette.primary.dark
-                              : theme.palette.primary.light,
-                            color: "white",
-                            borderColor: "transparent",
-                          },
-                          transition: "all 0.2s ease",
                         }}
-                      />
-                    ))}
+                      >
+                        {category.name}
+                      </Typography>
+                    </Box>
+                    <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
+                      {category.skills.map((skill, i) => (
+                        <Box key={i}>
+                          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 0.5 }}>
+                            <Typography
+                              component="span"
+                              sx={{
+                                fontFamily: monoFontFamily,
+                                fontSize: "0.8rem",
+                                color: theme.palette.primary.main,
+                              }}
+                            >
+                              #{skill.name.toLowerCase().replace(/\s+/g, "_")}
+                            </Typography>
+                            <Typography
+                              component="span"
+                              sx={{
+                                fontFamily: monoFontFamily,
+                                fontSize: "0.75rem",
+                                color: darkMode ? theme.palette.text.secondary : theme.palette.grey[600],
+                              }}
+                            >
+                              {skill.level}%
+                            </Typography>
+                          </Box>
+                          <LinearProgress
+                            variant="determinate"
+                            value={skill.level}
+                            sx={{
+                              height: 6,
+                              borderRadius: 1,
+                              backgroundColor: darkMode ? theme.palette.grey[700] : theme.palette.grey[200],
+                              "& .MuiLinearProgress-bar": {
+                                backgroundColor: theme.palette.primary.main,
+                              },
+                            }}
+                          />
+                        </Box>
+                      ))}
+                    </Box>
                   </Box>
-                </Box>
-              </motion.div>
-            </Grid>
-          ))}
+                </motion.div>
+              </Grid>
+            );
+          })}
         </Grid>
       </motion.div>
     </Box>

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -6,117 +7,177 @@ import {
   IconButton,
   useTheme,
   Box,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
 } from "@mui/material";
 import { motion } from "framer-motion";
-import { GitHub, LinkedIn, LightMode, DarkMode } from "@mui/icons-material";
+import { GitHub, LinkedIn, LightMode, DarkMode, Menu } from "@mui/icons-material";
 import { useTheme as useCustomTheme } from "../context/ThemeContext";
+
+const navItems = [
+  "Home",
+  "Education",
+  "Experience",
+  "Projects",
+  "Skills",
+  "Contact",
+];
 
 export default function Header() {
   const { darkMode, toggleTheme } = useCustomTheme();
   const theme = useTheme();
-  const navItems = [
-    "Home",
-    "Education",
-    "Experience",
-    "Projects",
-    "Skills",
-    "Contact",
-  ];
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleDrawerToggle = () => setMobileOpen((v) => !v);
+  const closeDrawer = () => setMobileOpen(false);
+
+  const navButtons = (
+    <>
+      {navItems.map((item) => (
+        <Button
+          key={item}
+          href={`#${item.toLowerCase()}`}
+          onClick={closeDrawer}
+          sx={{
+            color: darkMode ? theme.palette.common.white : theme.palette.grey[700],
+            "&:hover": {
+              color: theme.palette.primary.main,
+              backgroundColor: "transparent",
+            },
+            fontWeight: 500,
+          }}
+        >
+          {item}
+        </Button>
+      ))}
+    </>
+  );
+
+  const iconGroup = (
+    <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+      <IconButton onClick={toggleTheme} sx={{ color: "inherit" }} aria-label="Toggle theme">
+        {darkMode ? <LightMode /> : <DarkMode />}
+      </IconButton>
+      <IconButton href="https://github.com/hassan2314" target="_blank" sx={{ color: "inherit" }} aria-label="GitHub">
+        <GitHub />
+      </IconButton>
+      <IconButton href="https://www.linkedin.com/in/hassan-ahmed-1595b12a6/" target="_blank" sx={{ color: "inherit" }} aria-label="LinkedIn">
+        <LinkedIn />
+      </IconButton>
+    </Box>
+  );
 
   return (
-    <AppBar
-      position="sticky"
-      sx={{
-        backgroundColor: darkMode
-          ? theme.palette.grey[900] // Dark mode color
-          : "#ffffff", // Light mode color - pure white
-        color: darkMode ? theme.palette.common.white : theme.palette.grey[900], // Dark text in light mode
-        transition: "all 0.3s ease",
-        boxShadow: darkMode ? "none" : "0 2px 4px rgba(0,0,0,0.1)", // Subtle shadow in light mode
-        borderBottom: darkMode ? "none" : "1px solid rgba(0, 0, 0, 0.12)", // Subtle border in light mode
-      }}
-    >
-      <Toolbar sx={{ justifyContent: "space-between" }}>
-        <motion.div
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{
-              fontWeight: 700,
-              color: darkMode
-                ? theme.palette.common.white
-                : theme.palette.primary.main, // Primary color for name in light mode
-            }}
-          >
-            Hassan Ahmed
-          </Typography>
-        </motion.div>
-
-        <Box sx={{ display: { xs: "none", sm: "block" } }}>
-          {navItems.map((item) => (
-            <Button
-              key={item}
-              href={`#${item.toLowerCase()}`}
+    <>
+      <AppBar
+        position="sticky"
+        elevation={0}
+        sx={{
+          backgroundColor: scrolled
+            ? (darkMode ? "rgba(13, 17, 23, 0.92)" : "rgba(255, 255, 255, 0.92)")
+            : "transparent",
+          backdropFilter: scrolled ? "blur(12px)" : "none",
+          color: scrolled ? (darkMode ? theme.palette.common.white : theme.palette.grey[900]) : "rgba(255,255,255,0.95)",
+          transition: "background-color 0.3s ease, backdrop-filter 0.3s ease",
+          borderBottom: scrolled
+            ? `1px solid ${darkMode ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.08)"}`
+            : "none",
+        }}
+      >
+        <Toolbar sx={{ justifyContent: "space-between", minHeight: { xs: 56, sm: 64 } }}>
+          <motion.div initial={{ x: -20 }} animate={{ x: 0 }} transition={{ duration: 0.4 }}>
+            <Typography
+              variant="h6"
+              component="a"
+              href="#home"
               sx={{
-                color: darkMode
-                  ? theme.palette.common.white
-                  : theme.palette.grey[700], // Darker text for nav items
-                "&:hover": {
-                  color: theme.palette.primary.main, // Primary color on hover
-                  backgroundColor: "transparent",
-                },
-                fontWeight: 500,
+                fontWeight: 700,
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: theme.palette.primary.main },
               }}
             >
-              {item}
-            </Button>
-          ))}
-        </Box>
+              Hassan Ahmed
+            </Typography>
+          </motion.div>
 
-        <motion.div
-          initial={{ x: 100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 0.5 }}
-          style={{ display: "flex", alignItems: "center" }}
-        >
+          <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 0.5 }}>
+            {navButtons}
+          </Box>
+
+          <Box sx={{ display: { xs: "none", sm: "flex" }, alignItems: "center" }}>
+            {iconGroup}
+          </Box>
+
           <IconButton
-            onClick={toggleTheme}
-            sx={{
-              color: darkMode
-                ? theme.palette.common.white
-                : theme.palette.grey[700],
-            }}
+            sx={{ display: { xs: "flex", md: "none" }, color: "inherit" }}
+            onClick={handleDrawerToggle}
+            aria-label="Open menu"
           >
-            {darkMode ? <LightMode /> : <DarkMode />}
+            <Menu />
           </IconButton>
-          <IconButton
-            href="https://github.com/hassan2314"
-            target="_blank"
-            sx={{
-              color: darkMode
-                ? theme.palette.common.white
-                : theme.palette.grey[700],
-            }}
-          >
-            <GitHub />
-          </IconButton>
-          <IconButton
-            href="https://www.linkedin.com/in/hassan-ahmed-1595b12a6/"
-            target="_blank"
-            sx={{
-              color: darkMode
-                ? theme.palette.common.white
-                : theme.palette.grey[700],
-            }}
-          >
-            <LinkedIn />
-          </IconButton>
-        </motion.div>
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+      </AppBar>
+
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        ModalProps={{ keepMounted: true }}
+        sx={{
+          display: { xs: "block", md: "none" },
+          "& .MuiDrawer-paper": {
+            width: 280,
+            boxSizing: "border-box",
+            backgroundColor: darkMode ? theme.palette.grey[900] : theme.palette.background.paper,
+            borderLeft: `1px solid ${darkMode ? theme.palette.grey[700] : theme.palette.grey[200]}`,
+          },
+        }}
+      >
+        <Box sx={{ pt: 2, pb: 2, px: 2 }}>
+          <Typography variant="h6" sx={{ fontWeight: 700, mb: 2 }}>
+            Menu
+          </Typography>
+          <List disablePadding>
+            {navItems.map((item) => (
+              <ListItem key={item} disablePadding sx={{ mb: 0.5 }}>
+                <ListItemButton
+                  component="a"
+                  href={`#${item.toLowerCase()}`}
+                  onClick={closeDrawer}
+                  sx={{
+                    borderRadius: 1,
+                    "&:hover": { backgroundColor: theme.palette.primary.main + "20" },
+                  }}
+                >
+                  <ListItemText primary={item} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+          <Box sx={{ display: "flex", gap: 1, mt: 3 }}>
+            <IconButton onClick={toggleTheme} sx={{ color: "inherit" }}>
+              {darkMode ? <LightMode /> : <DarkMode />}
+            </IconButton>
+            <IconButton href="https://github.com/hassan2314" target="_blank" sx={{ color: "inherit" }}>
+              <GitHub />
+            </IconButton>
+            <IconButton href="https://www.linkedin.com/in/hassan-ahmed-1595b12a6/" target="_blank" sx={{ color: "inherit" }}>
+              <LinkedIn />
+            </IconButton>
+          </Box>
+        </Box>
+      </Drawer>
+    </>
   );
 }

@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import SchoolIcon from "@mui/icons-material/School";
 import { useTheme as useCustomTheme } from "../context/ThemeContext";
+import { monoFontFamily } from "../theme";
 
 export default function Education() {
   const [ref, inView] = useInView({
@@ -47,7 +48,7 @@ export default function Education() {
       sx={{
         py: 8,
         px: 3,
-        backgroundColor: darkMode ? theme.palette.grey[900] : "#ffffff",
+        backgroundColor: darkMode ? theme.palette.grey[900] : theme.palette.grey[50],
         transition: "background-color 0.3s ease",
       }}
     >
@@ -56,6 +57,19 @@ export default function Education() {
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8 }}
       >
+        <Typography
+          component="span"
+          sx={{
+            display: "block",
+            textAlign: "center",
+            fontFamily: monoFontFamily,
+            fontSize: "0.8rem",
+            color: theme.palette.primary.main,
+            mb: 1,
+          }}
+        >
+          // education
+        </Typography>
         <Typography
           variant="h4"
           align="center"
@@ -174,16 +188,23 @@ export default function Education() {
                 </Typography>
                 <List dense>
                   {educationData.coursework.map((course, index) => (
-                    <ListItem key={index} sx={{ py: 0 }}>
-                      <ListItemText
-                        primary={course}
-                        sx={{
-                          color: darkMode
-                            ? theme.palette.text.primary
-                            : theme.palette.grey[800],
-                        }}
-                      />
-                    </ListItem>
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={inView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.3, delay: index * 0.06 }}
+                    >
+                      <ListItem sx={{ py: 0 }}>
+                        <ListItemText
+                          primary={course}
+                          sx={{
+                            color: darkMode
+                              ? theme.palette.text.primary
+                              : theme.palette.grey[800],
+                          }}
+                        />
+                      </ListItem>
+                    </motion.div>
                   ))}
                 </List>
               </Paper>
@@ -213,16 +234,23 @@ export default function Education() {
                 </Typography>
                 <List dense>
                   {educationData.achievements.map((achievement, index) => (
-                    <ListItem key={index} sx={{ py: 0 }}>
-                      <ListItemText
-                        primary={achievement}
-                        sx={{
-                          color: darkMode
-                            ? theme.palette.text.primary
-                            : theme.palette.grey[800],
-                        }}
-                      />
-                    </ListItem>
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -8 }}
+                      animate={inView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.3, delay: 0.2 + index * 0.06 }}
+                    >
+                      <ListItem sx={{ py: 0 }}>
+                        <ListItemText
+                          primary={achievement}
+                          sx={{
+                            color: darkMode
+                              ? theme.palette.text.primary
+                              : theme.palette.grey[800],
+                          }}
+                        />
+                      </ListItem>
+                    </motion.div>
                   ))}
                 </List>
               </Paper>
