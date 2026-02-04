@@ -26,21 +26,17 @@ export default function Education() {
     degree: "Bachelor of Science in Computer Science (BSCS)",
     university: "NUML University, Islamabad, Pakistan",
     duration: "2021 - 2025",
+    cgpa: "3.0",
     description:
       "Comprehensive computer science program focusing on modern software development practices and theoretical foundations.",
     coursework: [
       "Data Structures and Algorithms",
       "Database Management Systems",
       "Web Development",
-      "Operating Systems",
-      "Computer Networks",
-      "Software Engineering",
-      "Artificial Intelligence",
     ],
     achievements: [
-      "Graduated with Honors",
-      "Participated in multiple IT Conferences",
-      "Completed several Internships",
+      "Relevant coursework in DSA, DBMS, and Web Development",
+      "Completed internships in full-stack development",
     ],
   };
 
@@ -117,12 +113,16 @@ export default function Education() {
             >
               {educationData.degree}
             </Typography>
-            <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+            <Box sx={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 1, mb: 2 }}>
               <Chip
                 label={educationData.duration}
                 color="primary"
                 size="small"
-                sx={{ mr: 2 }}
+              />
+              <Chip
+                label={`CGPA: ${educationData.cgpa}`}
+                color="secondary"
+                size="small"
               />
               <Typography
                 variant="subtitle1"

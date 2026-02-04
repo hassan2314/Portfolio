@@ -1,5 +1,6 @@
 // components/Hero.jsx
 import { Box, Typography, Button, Avatar, useTheme } from "@mui/material";
+import DownloadIcon from "@mui/icons-material/Download";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useTheme as useCustomTheme } from "../context/ThemeContext";
@@ -143,7 +144,7 @@ export default function Hero() {
               fontSize: { xs: "1.2rem", md: "1.5rem" },
             }}
           >
-            Computer Science Graduate & Software Developer
+            BSCS Graduate · Full-Stack Web Developer
           </Typography>
           <Typography
             variant="body1"
@@ -201,6 +202,28 @@ export default function Hero() {
               }}
             >
               View Projects
+            </Button>
+            <Button
+              variant="outlined"
+              color="inherit"
+              size="large"
+              href="/Hassan_Ahmed_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              startIcon={<DownloadIcon />}
+              sx={{
+                "&:hover": {
+                  transform: "translateY(-3px)",
+                  boxShadow: theme.shadows[6],
+                  backgroundColor: "rgba(255,255,255,0.15)",
+                  borderColor: "rgba(255,255,255,0.8)",
+                },
+                transition: "all 0.3s ease",
+                borderColor: "rgba(255,255,255,0.5)",
+                color: "white",
+              }}
+            >
+              Download Resume
             </Button>
           </Box>
         </motion.div>
