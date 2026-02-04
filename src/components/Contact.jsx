@@ -20,6 +20,7 @@ import {
   GitHub,
   LinkedIn,
   Send,
+  Download,
 } from "@mui/icons-material";
 import { useTheme as useCustomTheme } from "../context/ThemeContext";
 import { useState } from "react";
@@ -213,6 +214,24 @@ export default function Contact() {
                       >
                         G-8/4, Islamabad, Pakistan
                       </Typography>
+                    </Box>
+
+                    <Box sx={{ mt: 2 }}>
+                      <Button
+                        variant="outlined"
+                        color="primary"
+                        size="medium"
+                        href="/Hassan_Ahmed_Resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        startIcon={<Download />}
+                        sx={{
+                          textTransform: "none",
+                          borderRadius: "8px",
+                        }}
+                      >
+                        Download Resume
+                      </Button>
                     </Box>
                   </Box>
 

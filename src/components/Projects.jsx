@@ -17,7 +17,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { useTheme as useCustomTheme } from "../context/ThemeContext";
 
-const projectIcons = ["🎥", "🧵", "📝", "✍️", "🎥", "🛒"];
+const projectIcons = ["📚", "🏫", "💬", "🎥", "🧵", "📝", "✍️", "🎥", "🛒"];
 
 export default function Projects() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -26,10 +26,37 @@ export default function Projects() {
 
   const projects = [
     {
+      title: "Read Maududi",
+      subtitle: "Books Web Application",
+      description:
+        "Complete books web app with authentication, book listings, detail pages, user bookmarks, and full admin panel. Implemented efficient pagination, advanced filters (publisher/date/category), fuzzy search, and optimized DB queries with indexing. Structured backend (Nest.js + PostgreSQL + Prisma) and frontend (Next.js) in a modular, scalable architecture.",
+      technologies: ["Next.js", "PostgreSQL", "Prisma", "Node.js", "Nest.js"],
+      githubLink: "https://github.com/hassan2314/read-maududi",
+      demoLink: "#",
+    },
+    {
+      title: "Next School",
+      subtitle: "Educational Platform",
+      description:
+        "Modern educational platform using Next.js 15 and React 19 with Tailwind CSS v4 and Framer Motion for smooth UI animations. Implemented modular component architecture, responsive layouts, dynamic visual effects, and optimized performance using Turbopack and TypeScript.",
+      technologies: ["Next.js 15", "React 19", "Tailwind CSS v4", "Framer Motion", "TypeScript"],
+      githubLink: "https://github.com/hassan2314/next-school",
+      demoLink: "#",
+    },
+    {
+      title: "ChatAI",
+      subtitle: "AI Chat Application",
+      description:
+        "Lightweight AI chat app using Next.js 15 + React 19 with Groq API integration, MUI components, Markdown rendering, and syntax highlighting. Deployed on Vercel with Turbopack optimization.",
+      technologies: ["Next.js", "Groq", "React", "MUI"],
+      githubLink: "https://github.com/hassan2314/chatai",
+      demoLink: "#",
+    },
+    {
       title: "Next Video",
       subtitle: "Video Sharing Platform",
       description:
-        "A modern video sharing platform built with Next.js 15 featuring user authentication, video upload, channel management, and secure APIs.",
+        "Modern video-sharing platform with user authentication, channel-based video management, secure API endpoints, and optimized video upload handling. Implemented protected routes, session-based access control using NextAuth, and integrated ImageKit for optimized media storage and delivery.",
       technologies: [
         "Next.js 15",
         "React 19",
@@ -44,9 +71,9 @@ export default function Projects() {
     },
     {
       title: "Stitch and Style",
-      subtitle: "3D E-commerce Platform",
+      subtitle: "Custom Fabric Design Studio (FYP)",
       description:
-        "Custom fabric design studio with real-time 3D previews using Three.js. Features user authentication, dynamic customization, and order management.",
+        "Developed a 3D clothing customization platform with real-time previews. Features include authentication, dynamic fabric selection, designer commission calculation, order placement, and 3D visualization using Three.js.",
       technologies: ["React", "Node.js", "MongoDB", "Three.js"],
       githubLink: "https://github.com/Has41/FYP-Project-Fabric",
       demoLink: "#",
@@ -55,8 +82,8 @@ export default function Projects() {
       title: "AI Text Summarizer",
       subtitle: "NLP Application",
       description:
-        "Transforms long articles into concise summaries using HuggingFace Transformers. Full-stack implementation with JWT authentication.",
-      technologies: ["React", "FastAPI", "Python", "Transformers"],
+        "Full-stack summarization tool that converts long text into concise bullet points. Used FastAPI as the backend layer and integrated both Gemini API and Groq LLM endpoints for generating summaries. Implemented secure authentication on the frontend and connected the React client with the summarization API for real-time response handling.",
+      technologies: ["React", "Node.js", "FastAPI", "Transformers", "Gemini", "Groq"],
       githubLink: "https://github.com/hassan2314/Summarizer_Frontend",
       demoLink: "https://github.com/hassan2314/Summarizer-AI",
     },
@@ -64,36 +91,27 @@ export default function Projects() {
       title: "MegaBlog",
       subtitle: "Modern Blog Platform",
       description:
-        "Feature-rich blogging platform with rich text editing, image uploads, and user management using Appwrite backend.",
-      technologies: ["React", "Appwrite", "Tailwind CSS", "TinyMCE"],
+        "Modern blogging platform with user authentication, rich text editing, image uploads, and post management. Integrated Appwrite for backend services and built a responsive UI with Vite and Tailwind CSS.",
+      technologies: ["React", "Vite", "Appwrite", "TinyMCE", "Tailwind CSS"],
       githubLink: "https://github.com/hassan2314/Blog",
       demoLink: "https://timely-gaufre-3a882a.netlify.app/",
     },
     {
-      title: "YouTube Backend",
+      title: "YouTube Backend Clone",
       subtitle: "API Clone",
       description:
-        "Complete backend system replicating YouTube's core features including video uploads, comments, and user profiles.",
+        "Engineered a backend system replicating core YouTube functionalities, including user registration, video upload and storage, comment threads, like/dislike logic, and user profiles.",
       technologies: ["Node.js", "Express", "MongoDB", "JWT"],
       githubLink: "https://github.com/hassan2314/Youtube",
-      demoLink: "#",
-    },
-    {
-      title: "Mart",
-      subtitle: "Full-Stack Web Application",
-      description:
-        "Modern e-commerce system with modular architecture. Built using React (Vite), Express, and MongoDB with full REST API integration.",
-      technologies: ["React", "Node.js", "Express", "MongoDB"],
-      githubLink: "https://github.com/hassan2314/Mart",
       demoLink: "#",
     },
     {
       title: "E-commerce App",
       subtitle: "Online Store",
       description:
-        "Full-featured shopping platform with product management, cart functionality, and Stripe payment integration.",
-      technologies: ["Laravel", "Bootstrap", "MySQL", "Stripe"],
-      githubLink: "https://github.com/hassan2314/Bezzey",
+        "Full-featured e-commerce solution with product catalog, user registration/login, admin product management, cart functionality, and Stripe payment gateway integration.",
+      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+      githubLink: "https://github.com/hassan2314/Mart",
       demoLink: "#",
     },
   ];
