@@ -113,7 +113,7 @@ export default function Projects() {
         "Full-featured e-commerce solution with product catalog, user registration/login, admin product management, cart functionality, and Stripe payment gateway integration.",
       technologies: ["React", "Node.js", "MongoDB", "Stripe"],
       githubLink: "https://github.com/hassan2314/Mart",
-      demoLink: "#",
+      demoLink: "https://mart-frontend.netlify.app/",
     },
   ];
 
