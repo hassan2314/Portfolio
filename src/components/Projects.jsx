@@ -18,7 +18,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import { useTheme as useCustomTheme } from "../context/ThemeContext";
 import { monoFontFamily } from "../theme";
 
-const projectIcons = ["📚", "🏫", "💬", "🎥", "🧵", "📝", "✍️", "🎥", "🛒"];
+const projectIcons = ["📚", "🌐", "🧵", "🎥", "📝", "✍️", "💬", "🏫"];
 
 export default function Projects() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -27,93 +27,107 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "Read Maududi",
-      subtitle: "Books Web Application",
+      title: "ReadMaududi",
+      subtitle: "Digital Library · 50,000+ readers",
       description:
-        "Complete books web app with authentication, book listings, detail pages, user bookmarks, and full admin panel. Implemented efficient pagination, advanced filters (publisher/date/category), fuzzy search, and optimized DB queries with indexing. Structured backend (Nest.js + PostgreSQL + Prisma) and frontend (Next.js) in a modular, scalable architecture.",
-      technologies: ["Next.js", "PostgreSQL", "Prisma", "Node.js", "Nest.js"],
+        "Own the NestJS backend and Next.js admin panel for a digital library serving 50,000+ readers. Built REST APIs, JWT auth, OCR/content pipelines (Google Document AI, AWS S3), Apple & Google Play subscriptions, and AI chat/search/summarization by integrating external LLM services into production APIs.",
+      technologies: [
+        "NestJS",
+        "Next.js",
+        "PostgreSQL",
+        "Prisma",
+        "JWT",
+        "Document AI",
+        "AWS S3",
+        "AI APIs",
+      ],
       githubLink: "https://github.com/hassan2314",
       demoLink: "https://www.readmaududi.com/",
     },
     {
-      title: "Next School",
-      subtitle: "Educational Platform",
+      title: "National Non-Profit Web Platform",
+      subtitle: "Bilingual CMS · Next.js + NestJS",
       description:
-        "Modern educational platform using Next.js 15 and React 19 with Tailwind CSS v4 and Framer Motion for smooth UI animations. Implemented modular component architecture, responsive layouts, dynamic visual effects, and optimized performance using Turbopack and TypeScript.",
-      technologies: ["Next.js 15", "React 19", "Tailwind CSS v4", "Framer Motion", "TypeScript"],
-      githubLink: "https://github.com/hassan2314/next-school",
-      demoLink: "https://next-school-pi.vercel.app/",
+        "Official bilingual (English/Urdu, RTL) web platform for a large national non-profit. Architected 25+ NestJS modules — CMS with revisions, dynamic page builder, events, campaigns, donations, membership — plus AWS S3 media, Sharp image optimization, d3-geo maps, Docker, and PM2 deployments.",
+      technologies: [
+        "Next.js 15",
+        "React 19",
+        "NestJS",
+        "Sequelize",
+        "PostgreSQL",
+        "AWS S3",
+        "Docker",
+        "Swagger",
+      ],
+      githubLink: "https://github.com/hassan2314",
+      demoLink: null,
     },
     {
-      title: "ChatAI",
-      subtitle: "AI Chat Application",
+      title: "Stitch and Style",
+      subtitle: "3D Custom Fabric Design Studio (FYP)",
       description:
-        "Lightweight AI chat app using Next.js 15 + React 19 with Groq API integration, MUI components, Markdown rendering, and syntax highlighting. Deployed on Vercel with Turbopack optimization.",
-      technologies: ["Next.js", "Groq", "React", "MUI"],
-      githubLink: "https://github.com/hassan2314/chatai",
-      demoLink: "https://chat-ai-nu-topaz.vercel.app/",
+        "3D clothing customization platform with real-time previews, dynamic fabric selection, designer commission calculation, order placement, and Three.js visualization.",
+      technologies: ["React", "Node.js", "MongoDB", "Three.js"],
+      githubLink: "https://github.com/Has41/FYP-Project-Fabric",
+      demoLink: null,
     },
     {
       title: "Next Video",
       subtitle: "Video Sharing Platform",
       description:
-        "Modern video-sharing platform with user authentication, channel-based video management, secure API endpoints, and optimized video upload handling. Implemented protected routes, session-based access control using NextAuth, and integrated ImageKit for optimized media storage and delivery.",
+        "Video-sharing platform with channel-based video management, NextAuth session-based access control, and optimized media upload and delivery via ImageKit.",
       technologies: [
         "Next.js 15",
         "React 19",
         "TypeScript",
         "MongoDB",
         "NextAuth.js",
-        "Tailwind CSS v4",
         "ImageKit",
       ],
       githubLink: "https://github.com/hassan2314/next-video",
       demoLink: "https://next-video-2hm2.vercel.app/",
     },
     {
-      title: "Stitch and Style",
-      subtitle: "Custom Fabric Design Studio (FYP)",
-      description:
-        "Developed a 3D clothing customization platform with real-time previews. Features include authentication, dynamic fabric selection, designer commission calculation, order placement, and 3D visualization using Three.js.",
-      technologies: ["React", "Node.js", "MongoDB", "Three.js"],
-      githubLink: "https://github.com/Has41/FYP-Project-Fabric",
-      demoLink: "#",
-    },
-    {
-      title: "AI Text Summarizer",
-      subtitle: "NLP Application",
-      description:
-        "Full-stack summarization tool that converts long text into concise bullet points. Used FastAPI as the backend layer and integrated both Gemini API and Groq LLM endpoints for generating summaries. Implemented secure authentication on the frontend and connected the React client with the summarization API for real-time response handling.",
-      technologies: ["React", "Node.js", "FastAPI", "Transformers", "Gemini", "Groq"],
-      githubLink: "https://github.com/hassan2314/Summarizer_Frontend",
-      demoLink: "https://github.com/hassan2314/Summarizer-AI",
-    },
-    {
       title: "MegaBlog",
       subtitle: "Modern Blog Platform",
       description:
-        "Modern blogging platform with user authentication, rich text editing, image uploads, and post management. Integrated Appwrite for backend services and built a responsive UI with Vite and Tailwind CSS.",
+        "Blogging platform with user authentication, rich-text editing, image uploads, and post management on Appwrite backend services.",
       technologies: ["React", "Vite", "Appwrite", "TinyMCE", "Tailwind CSS"],
       githubLink: "https://github.com/hassan2314/Blog",
       demoLink: "https://timely-gaufre-3a882a.netlify.app/",
     },
     {
-      title: "YouTube Backend Clone",
-      subtitle: "API Clone",
+      title: "AI Text Summarizer",
+      subtitle: "NLP Application",
       description:
-        "Engineered a backend system replicating core YouTube functionalities, including user registration, video upload and storage, comment threads, like/dislike logic, and user profiles.",
-      technologies: ["Node.js", "Express", "MongoDB", "JWT"],
-      githubLink: "https://github.com/hassan2314/Youtube",
-      demoLink: "#",
+        "Full-stack summarization tool converting long text into concise bullet points. FastAPI backend with Gemini and Groq LLM endpoints, plus JWT-secured React client for real-time summaries.",
+      technologies: ["React", "Node.js", "FastAPI", "Gemini", "Groq"],
+      githubLink: "https://github.com/hassan2314/Summarizer_Frontend",
+      demoLink: "https://github.com/hassan2314/Summarizer-AI",
     },
     {
-      title: "E-commerce App",
-      subtitle: "Online Store",
+      title: "ChatAI",
+      subtitle: "AI Chat Application",
       description:
-        "Full-featured e-commerce solution with product catalog, user registration/login, admin product management, cart functionality, and Stripe payment gateway integration.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      githubLink: "https://github.com/hassan2314/Mart",
-      demoLink: "https://mart-frontend.netlify.app/",
+        "Lightweight AI chat app using Next.js 15 + React 19 with Groq API integration, Markdown rendering, and syntax highlighting.",
+      technologies: ["Next.js", "Groq", "React", "MUI"],
+      githubLink: "https://github.com/hassan2314/chatai",
+      demoLink: "https://chat-ai-nu-topaz.vercel.app/",
+    },
+    {
+      title: "Next School",
+      subtitle: "Educational Platform",
+      description:
+        "Modern educational platform using Next.js 15 and React 19 with Tailwind CSS v4 and Framer Motion for smooth UI animations and responsive layouts.",
+      technologies: [
+        "Next.js 15",
+        "React 19",
+        "Tailwind CSS v4",
+        "Framer Motion",
+        "TypeScript",
+      ],
+      githubLink: "https://github.com/hassan2314/next-school",
+      demoLink: "https://next-school-pi.vercel.app/",
     },
   ];
 
@@ -183,7 +197,7 @@ export default function Projects() {
                   : theme.palette.secondary.dark,
               }}
             />
-            My Projects
+            Featured Work
           </Typography>
 
           <Typography
@@ -199,11 +213,10 @@ export default function Projects() {
               fontSize: { xs: "1rem", sm: "1.1rem" },
             }}
           >
-            Here are some of my featured projects. Each one represents unique
-            challenges and learning opportunities.
+            Production platforms and selected projects — from digital libraries
+            and CMS systems to AI-integrated full-stack apps.
           </Typography>
 
-          {/* Bento: first 2 projects span 2 cols (md=6), rest md=4 */}
           <Grid container spacing={3} justifyContent="center">
             {projects.map((project, index) => {
               const isFeatured = index < 2;
@@ -297,126 +310,130 @@ export default function Projects() {
                           </Typography>
                         </Box>
 
-                      <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                        <Typography
-                          variant="body1"
-                          sx={{
-                            mb: 3,
-                            color: darkMode
-                              ? theme.palette.text.primary
-                              : theme.palette.grey[800],
-                            lineHeight: 1.6,
-                            fontSize: "1.1rem",
-                          }}
-                        >
-                          {project.description}
-                        </Typography>
-
-                        <Box sx={{ mb: 3 }}>
+                        <CardContent sx={{ flexGrow: 1, p: 3 }}>
                           <Typography
-                            variant="subtitle2"
+                            variant="body1"
                             sx={{
-                              mb: 1,
-                              fontFamily: monoFontFamily,
-                              fontSize: "0.75rem",
-                              color: theme.palette.primary.main,
+                              mb: 3,
+                              color: darkMode
+                                ? theme.palette.text.primary
+                                : theme.palette.grey[800],
+                              lineHeight: 1.6,
+                              fontSize: "1.05rem",
                             }}
                           >
-                            # tech
+                            {project.description}
                           </Typography>
-                          <Box
+
+                          <Box sx={{ mb: 3 }}>
+                            <Typography
+                              variant="subtitle2"
+                              sx={{
+                                mb: 1,
+                                fontFamily: monoFontFamily,
+                                fontSize: "0.75rem",
+                                color: theme.palette.primary.main,
+                              }}
+                            >
+                              # tech
+                            </Typography>
+                            <Box
+                              sx={{
+                                display: "flex",
+                                flexWrap: "wrap",
+                                flexDirection: "row",
+                                gap: 1,
+                              }}
+                            >
+                              {project.technologies.map((tech, i) => (
+                                <Chip
+                                  key={i}
+                                  label={tech}
+                                  size="small"
+                                  sx={{
+                                    fontFamily: monoFontFamily,
+                                    fontSize: "0.75rem",
+                                    backgroundColor: darkMode
+                                      ? theme.palette.grey[700]
+                                      : theme.palette.grey[200],
+                                    color: darkMode
+                                      ? theme.palette.text.primary
+                                      : theme.palette.grey[800],
+                                    border: "1px solid",
+                                    borderColor: darkMode
+                                      ? theme.palette.grey[600]
+                                      : theme.palette.grey[300],
+                                    fontWeight: 500,
+                                  }}
+                                />
+                              ))}
+                            </Box>
+                          </Box>
+                        </CardContent>
+
+                        <CardActions
+                          sx={{
+                            p: 2,
+                            borderTop: "1px solid",
+                            borderColor: darkMode
+                              ? theme.palette.grey[600]
+                              : theme.palette.grey[200],
+                            justifyContent: "space-between",
+                          }}
+                        >
+                          {project.demoLink ? (
+                            <Button
+                              variant="outlined"
+                              size="medium"
+                              color="primary"
+                              startIcon={<VisibilityIcon />}
+                              href={project.demoLink}
+                              target="_blank"
+                              sx={{
+                                textTransform: "none",
+                                borderRadius: "8px",
+                                px: 2,
+                                "&:hover": {
+                                  backgroundColor: darkMode
+                                    ? theme.palette.primary.dark
+                                    : theme.palette.primary.light,
+                                  color: "white",
+                                },
+                              }}
+                            >
+                              Live Demo
+                            </Button>
+                          ) : (
+                            <Box />
+                          )}
+                          <Button
+                            variant="outlined"
+                            size="medium"
+                            color="secondary"
+                            startIcon={<GitHubIcon />}
+                            href={project.githubLink}
+                            target="_blank"
                             sx={{
-                              display: "flex",
-                              flexWrap: "wrap",
-                              flexDirection: "row",
-                              gap: 1,
+                              textTransform: "none",
+                              borderRadius: "8px",
+                              px: 2,
+                              "&:hover": {
+                                backgroundColor: darkMode
+                                  ? theme.palette.secondary.dark
+                                  : theme.palette.secondary.light,
+                                color: "white",
+                              },
                             }}
                           >
-                            {project.technologies.map((tech, i) => (
-                              <Chip
-                                key={i}
-                                label={tech}
-                                size="small"
-                                sx={{
-                                  fontFamily: monoFontFamily,
-                                  fontSize: "0.75rem",
-                                  backgroundColor: darkMode
-                                    ? theme.palette.grey[700]
-                                    : theme.palette.grey[200],
-                                  color: darkMode
-                                    ? theme.palette.text.primary
-                                    : theme.palette.grey[800],
-                                  border: "1px solid",
-                                  borderColor: darkMode
-                                    ? theme.palette.grey[600]
-                                    : theme.palette.grey[300],
-                                  fontWeight: 500,
-                                }}
-                              />
-                            ))}
-                          </Box>
-                        </Box>
-                      </CardContent>
-
-                      <CardActions
-                        sx={{
-                          p: 2,
-                          borderTop: "1px solid",
-                          borderColor: darkMode
-                            ? theme.palette.grey[600]
-                            : theme.palette.grey[200],
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Button
-                          variant="outlined"
-                          size="medium"
-                          color="primary"
-                          startIcon={<VisibilityIcon />}
-                          href={project.demoLink}
-                          target="_blank"
-                          sx={{
-                            textTransform: "none",
-                            borderRadius: "8px",
-                            px: 2,
-                            "&:hover": {
-                              backgroundColor: darkMode
-                                ? theme.palette.primary.dark
-                                : theme.palette.primary.light,
-                              color: "white",
-                            },
-                          }}
-                        >
-                          Live Demo
-                        </Button>
-                        <Button
-                          variant="outlined"
-                          size="medium"
-                          color="secondary"
-                          startIcon={<GitHubIcon />}
-                          href={project.githubLink}
-                          target="_blank"
-                          sx={{
-                            textTransform: "none",
-                            borderRadius: "8px",
-                            px: 2,
-                            "&:hover": {
-                              backgroundColor: darkMode
-                                ? theme.palette.secondary.dark
-                                : theme.palette.secondary.light,
-                              color: "white",
-                            },
-                          }}
-                        >
-                          View Code
-                        </Button>
-                      </CardActions>
-                    </Card>
-                  </motion.div>
-                </Box>
-              </Grid>
-            );
-          })}
+                            View Code
+                          </Button>
+                        </CardActions>
+                      </Card>
+                    </motion.div>
+                  </Box>
+                </Grid>
+              );
+            })}
           </Grid>
         </motion.div>
       </Box>

@@ -29,54 +29,92 @@ export default function Experience() {
       title: "Full Stack Developer",
       company: "Digital Matters",
       location: "Islamabad, Pakistan",
-      duration: "Sept 2025 – Present",
+      duration: "Sep 2025 – Present",
       date: "Current",
-      responsibilities: [
-        "Working on frontend & backend modules for an Islamic books web application using Next.js, Nest.js, PostgreSQL & Prisma",
-        "Implementing REST APIs, advanced search filters, JWT-based authentication and role-based access",
-        "Building Admin Panel for content management (books, authors, categories, publishers) with protected routes",
-        "Developing responsive & optimized UI screens using Next.js, React Query and modular component architecture",
-        "Improving backend performance (pagination, indexing, query optimization) to reduce server response times",
+      projects: [
+        {
+          name: "ReadMaududi — Digital Library Platform (50,000+ readers)",
+          link: "https://readmaududi.com/",
+          bullets: [
+            "Build and own the backend (NestJS, PostgreSQL, Prisma, JWT auth) and Next.js admin panel of a digital library serving 50,000+ readers, with REST APIs and full content management for books, authors, categories, and publishers.",
+            "Developed content ingestion and OCR pipelines (Google Document AI, AWS S3) to digitize and publish book content, and implemented in-app subscriptions with Apple App Store and Google Play billing.",
+            "Integrated external AI services into production APIs and admin tools to power AI chat, search, and summarization features.",
+            "Optimized browsing with server-side pagination, multi-criteria filtering, and database indexing on frequently queried columns.",
+          ],
+        },
+        {
+          name: "Official Web Platform — National Non-Profit Organization",
+          link: null,
+          bullets: [
+            "Building the official bilingual (English/Urdu with RTL support) web platform of a large national non-profit organization using Next.js 15, React 19, NestJS, Sequelize, and PostgreSQL.",
+            "Architected a modular backend of 25+ NestJS modules — custom CMS with post revisions, dynamic page builder, events, campaigns, donations, and membership registration — secured with JWT and role-based access control.",
+            "Implemented a media pipeline with AWS S3 presigned uploads and on-the-fly image optimization (Sharp), plus response caching and compression for high-traffic performance.",
+            "Built interactive frontend features including a d3-geo regional map, rich-text editing, localized routing, and SEO with dynamic sitemaps; containerized with Docker and deployed with PM2.",
+          ],
+        },
       ],
-      skills: ["Next.js", "Nest.js", "PostgreSQL", "Prisma", "JWT", "React Query"],
+      skills: [
+        "Next.js",
+        "NestJS",
+        "PostgreSQL",
+        "Prisma",
+        "Sequelize",
+        "JWT",
+        "AWS S3",
+        "Document AI",
+        "Docker",
+      ],
     },
     {
-      title: "Full Stack Developer",
-      company: "Digital Matters",
+      title: "Full Stack Intern",
+      company: "Red Buffer",
       location: "Islamabad, Pakistan",
-      duration: "6 Weeks",
+      duration: "Jun 2025 – Aug 2025",
       date: "2025",
-      responsibilities: [
-        "AI Text Summarizer — React, Node.js, FastAPI, Transformers",
-        "Integrated HuggingFace transformer based summarization model with FastAPI backend",
-        "Developed secure frontend with JWT at scale",
+      projects: [
+        {
+          name: null,
+          link: null,
+          bullets: [
+            "Built an AI text summarization tool (React, Node.js, FastAPI) integrating Hugging Face transformer models with Gemini and Groq LLM endpoints, secured with JWT authentication and real-time response handling.",
+          ],
+        },
       ],
-      skills: ["React", "Node.js", "FastAPI", "Transformers"],
-    },
-    {
-      title: "Software Developer Intern",
-      company: "Pakistan Post Office",
-      location: "Islamabad, Pakistan",
-      duration: "6 Weeks",
-      date: "2024",
-      responsibilities: [
-        "Digitalization of Post Office — React, Node.js, Mongoose, Tailwind",
-        "Worked on digitizing branch operations including parcel records & staff screens",
-        "Implemented CRUD apps with authentication & role based access",
-      ],
-      skills: ["React", "Node.js", "Mongoose", "Tailwind"],
+      skills: ["React", "Node.js", "FastAPI", "Gemini", "Groq", "Hugging Face"],
     },
     {
       title: "Web Developer Intern",
       company: "Elites Digital Marketing",
       location: "Islamabad, Pakistan",
-      duration: "3 Months",
-      date: "2023",
-      responsibilities: [
-        "Developed landing pages & marketing microsites using HTML, CSS, JavaScript",
-        "Learned SEO-based UI improvements and deployment basics",
+      duration: "Sep 2024 – Feb 2025",
+      date: "2024–2025",
+      projects: [
+        {
+          name: null,
+          link: null,
+          bullets: [
+            "Developed responsive landing pages and marketing microsites (HTML, CSS, JavaScript) with SEO-driven UI improvements, and handled production deployments.",
+          ],
+        },
       ],
-      skills: ["HTML", "CSS", "JavaScript"],
+      skills: ["HTML", "CSS", "JavaScript", "SEO"],
+    },
+    {
+      title: "Software Developer Intern",
+      company: "Pakistan Post",
+      location: "Islamabad, Pakistan",
+      duration: "Jun 2023 – Aug 2023",
+      date: "2023",
+      projects: [
+        {
+          name: null,
+          link: null,
+          bullets: [
+            "Contributed to digitizing branch operations (parcel records, staff screens) with React, Node.js, and MongoDB, implementing CRUD workflows with authentication and role-based access.",
+          ],
+        },
+      ],
+      skills: ["React", "Node.js", "MongoDB", "Tailwind CSS"],
     },
   ];
 
@@ -211,32 +249,62 @@ export default function Experience() {
                   />
                 </Box>
 
-                <Typography
-                  variant="h6"
-                  gutterBottom
-                  sx={{
-                    mt: 2,
-                    color: darkMode
-                      ? theme.palette.secondary.light
-                      : theme.palette.secondary.dark,
-                  }}
-                >
-                  Key Responsibilities:
-                </Typography>
-                <List dense>
-                  {exp.responsibilities.map((resp, i) => (
-                    <ListItem key={i} sx={{ py: 0.5 }}>
-                      <ListItemText
-                        primary={resp}
+                {exp.projects.map((project, pIndex) => (
+                  <Box key={pIndex} sx={{ mb: project.name ? 2.5 : 1 }}>
+                    {project.name && (
+                      <Typography
+                        variant="subtitle1"
                         sx={{
+                          fontWeight: 700,
+                          mt: 1.5,
+                          mb: 0.5,
                           color: darkMode
-                            ? theme.palette.text.primary
-                            : theme.palette.grey[800],
+                            ? theme.palette.secondary.light
+                            : theme.palette.secondary.dark,
                         }}
-                      />
-                    </ListItem>
-                  ))}
-                </List>
+                      >
+                        {project.name}
+                        {project.link && (
+                          <>
+                            {" · "}
+                            <Typography
+                              component="a"
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              sx={{
+                                color: theme.palette.primary.main,
+                                textDecoration: "none",
+                                fontWeight: 600,
+                                "&:hover": { textDecoration: "underline" },
+                              }}
+                            >
+                              Live
+                            </Typography>
+                          </>
+                        )}
+                      </Typography>
+                    )}
+                    <List dense>
+                      {project.bullets.map((resp, i) => (
+                        <ListItem key={i} sx={{ py: 0.5, alignItems: "flex-start" }}>
+                          <ListItemText
+                            primary={resp}
+                            sx={{
+                              color: darkMode
+                                ? theme.palette.text.primary
+                                : theme.palette.grey[800],
+                              "& .MuiListItemText-primary": {
+                                fontSize: "0.95rem",
+                                lineHeight: 1.55,
+                              },
+                            }}
+                          />
+                        </ListItem>
+                      ))}
+                    </List>
+                  </Box>
+                ))}
 
                 <Typography
                   variant="h6"

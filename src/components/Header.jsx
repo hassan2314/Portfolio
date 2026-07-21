@@ -19,10 +19,10 @@ import { useTheme as useCustomTheme } from "../context/ThemeContext";
 
 const navItems = [
   "Home",
-  "Education",
   "Experience",
   "Projects",
   "Skills",
+  "Education",
   "Contact",
 ];
 

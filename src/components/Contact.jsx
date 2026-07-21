@@ -149,7 +149,7 @@ export default function Contact() {
                       </Typography>
                       <Typography component="span" sx={{ fontFamily: monoFontFamily, color: theme.palette.grey[500] }}>=</Typography>
                       <Typography component="span" sx={{ fontFamily: monoFontFamily, color: theme.palette.primary.main }}>
-                        "+92 342 004 2947"
+                        "+92 342 0042947"
                       </Typography>
                     </Box>
                     <Box sx={{ display: "flex", flexWrap: "wrap", alignItems: "baseline", gap: 0.5 }}>
@@ -158,7 +158,7 @@ export default function Contact() {
                       </Typography>
                       <Typography component="span" sx={{ fontFamily: monoFontFamily, color: theme.palette.grey[500] }}>=</Typography>
                       <Typography component="span" sx={{ fontFamily: monoFontFamily, color: theme.palette.primary.main }}>
-                        "G-8/4, Islamabad, Pakistan"
+                        "Islamabad, Pakistan"
                       </Typography>
                     </Box>
                   </Box>

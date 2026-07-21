@@ -24,20 +24,19 @@ export default function Education() {
   const theme = useTheme();
 
   const educationData = {
-    degree: "Bachelor of Science in Computer Science (BSCS)",
-    university: "NUML University, Islamabad, Pakistan",
-    duration: "2021 - 2025",
-    cgpa: "3.0",
+    degree: "Bachelor of Science in Computer Science",
+    university: "National University of Modern Languages (NUML), Islamabad",
+    duration: "2021 – 2025",
     description:
-      "Comprehensive computer science program focusing on modern software development practices and theoretical foundations.",
+      "Computer science program focused on software engineering, databases, and modern full-stack web development.",
     coursework: [
       "Data Structures and Algorithms",
       "Database Management Systems",
       "Web Development",
     ],
     achievements: [
-      "Relevant coursework in DSA, DBMS, and Web Development",
-      "Completed internships in full-stack development",
+      "Final Year Project: 3D fabric design studio with Three.js",
+      "Completed multiple full-stack internships in industry",
     ],
   };
 
@@ -131,11 +130,6 @@ export default function Education() {
               <Chip
                 label={educationData.duration}
                 color="primary"
-                size="small"
-              />
-              <Chip
-                label={`CGPA: ${educationData.cgpa}`}
-                color="secondary"
                 size="small"
               />
               <Typography

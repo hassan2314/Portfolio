@@ -20,14 +20,14 @@ function App() {
     <Box sx={{ backgroundColor: bg, minHeight: "100vh" }}>
       <Header />
       <Hero />
-      <SectionDivider label="education" />
-      <Education />
       <SectionDivider label="experience" />
       <Experience />
       <SectionDivider label="projects" />
       <Projects />
       <SectionDivider label="skills" />
       <Skills />
+      <SectionDivider label="education" />
+      <Education />
       <SectionDivider label="contact" />
       <Contact />
     </Box>

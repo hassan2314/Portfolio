@@ -10,7 +10,7 @@ const terminalLines = [
   "> whoami",
   "Hassan Ahmed",
   "> role",
-  "Full-Stack Web Developer",
+  "Full Stack Developer · Next.js · NestJS",
 ];
 
 export default function Hero() {
@@ -160,18 +160,20 @@ export default function Hero() {
                 fontSize: { xs: "1.1rem", md: "1.35rem" },
               }}
             >
-              BSCS Graduate · Full-Stack Web Developer
+              Full Stack Developer · Next.js · NestJS · PostgreSQL
             </Typography>
             <Typography
               variant="body1"
               sx={{
-                maxWidth: "560px",
+                maxWidth: "600px",
                 margin: "0 auto 28px",
                 fontSize: { xs: "0.95rem", md: "1.05rem" },
                 color: "rgba(255,255,255,0.75)",
               }}
             >
-              Passionate about building impactful, scalable solutions through code.
+              Building production platforms serving 50,000+ users — REST APIs,
+              secure auth, AI service integration, and admin tooling with Next.js,
+              NestJS, and PostgreSQL.
             </Typography>
             <Box
               sx={{

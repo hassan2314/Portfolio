@@ -1,4 +1,4 @@
-import { Box, Typography, Grid, Chip, LinearProgress, useTheme } from "@mui/material";
+import { Box, Typography, Grid, LinearProgress, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import BuildIcon from "@mui/icons-material/Build";
@@ -16,56 +16,64 @@ export default function Skills() {
 
   const skillCategories = [
     {
-      name: "Programming Languages",
+      name: "Languages",
       skills: [
         { name: "JavaScript", level: 90 },
         { name: "TypeScript", level: 88 },
-        { name: "PHP", level: 70 },
-        { name: "C++", level: 50 },
+        { name: "SQL", level: 82 },
+        { name: "HTML / CSS", level: 90 },
       ],
       icon: "💻",
     },
     {
-      name: "Web Development",
+      name: "Frontend",
       skills: [
-        { name: "React", level: 85 },
-        { name: "Next.js", level: 80 },
-        { name: "Node.js", level: 80 },
-        { name: "Express.js", level: 70 },
-        { name: "Nest.js", level: 75 },
-        { name: "Laravel", level: 50 },
-        { name: "Material-UI", level: 70 },
-        { name: "Tailwind CSS", level: 80 },
+        { name: "Next.js", level: 88 },
+        { name: "React", level: 90 },
+        { name: "Tailwind CSS", level: 85 },
+        { name: "React Query", level: 80 },
+        { name: "Framer Motion", level: 75 },
       ],
       icon: "🌐",
     },
     {
-      name: "Databases & ORM",
+      name: "Backend",
       skills: [
-        { name: "PostgreSQL", level: 80 },
-        { name: "MySQL", level: 70 },
+        { name: "NestJS", level: 88 },
+        { name: "Node.js", level: 88 },
+        { name: "REST APIs", level: 90 },
+        { name: "JWT / RBAC", level: 85 },
+        { name: "Swagger", level: 80 },
+      ],
+      icon: "⚙️",
+    },
+    {
+      name: "Databases & ORMs",
+      skills: [
+        { name: "PostgreSQL", level: 88 },
+        { name: "Prisma", level: 85 },
+        { name: "Sequelize", level: 82 },
         { name: "MongoDB", level: 80 },
-        { name: "Prisma", level: 75 },
       ],
       icon: "🗃️",
     },
     {
-      name: "APIs & Integration",
+      name: "AI Integration",
       skills: [
-        { name: "REST APIs", level: 80 },
-        { name: "JWT / NextAuth", level: 80 },
-        { name: "FastAPI Integration", level: 60 },
-        { name: "Stripe", level: 60 },
-        { name: "Redux Toolkit", level: 60 },
+        { name: "LLM APIs (Gemini / Groq)", level: 82 },
+        { name: "Google Document AI", level: 80 },
+        { name: "Hugging Face", level: 75 },
+        { name: "FastAPI Integration", level: 72 },
       ],
-      icon: "🔌",
+      icon: "🤖",
     },
     {
-      name: "Tools",
+      name: "Tools & DevOps",
       skills: [
-        { name: "Git", level: 80 },
-        { name: "GitHub", level: 80 },
-        { name: "VSCode", level: 80 },
+        { name: "Git", level: 88 },
+        { name: "Docker", level: 78 },
+        { name: "AWS S3", level: 82 },
+        { name: "PM2 / Vercel", level: 80 },
       ],
       icon: "🛠️",
     },
@@ -89,7 +97,8 @@ export default function Skills() {
         sx={{
           position: "absolute",
           inset: 0,
-          backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0, 212, 170, 0.04) 1px, transparent 0)",
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, rgba(0, 212, 170, 0.04) 1px, transparent 0)",
           backgroundSize: "24px 24px",
         }}
       />
@@ -150,16 +159,20 @@ export default function Skills() {
               color: darkMode
                 ? theme.palette.text.secondary
                 : theme.palette.grey[600],
-              maxWidth: 480,
+              maxWidth: 520,
               mx: "auto",
             }}
           >
-            Technologies and tools I work with
+            Stack I use to ship production APIs, admin panels, and AI-integrated apps
           </Typography>
         </Box>
 
-        {/* Bento: first 2 categories span 2 cols (md=6), rest md=4 */}
-        <Grid container spacing={3} justifyContent="center" sx={{ maxWidth: 1200, mx: "auto" }}>
+        <Grid
+          container
+          spacing={3}
+          justifyContent="center"
+          sx={{ maxWidth: 1200, mx: "auto" }}
+        >
           {skillCategories.map((category, index) => {
             const isWide = index < 2;
             return (
@@ -201,7 +214,10 @@ export default function Skills() {
                           : theme.palette.grey[200],
                       }}
                     >
-                      <Box component="span" sx={{ fontSize: "1.25rem", lineHeight: 1 }}>
+                      <Box
+                        component="span"
+                        sx={{ fontSize: "1.25rem", lineHeight: 1 }}
+                      >
                         {category.icon}
                       </Box>
                       <Typography
@@ -218,10 +234,19 @@ export default function Skills() {
                         {category.name}
                       </Typography>
                     </Box>
-                    <Box sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}>
+                    <Box
+                      sx={{ display: "flex", flexDirection: "column", gap: 1.5 }}
+                    >
                       {category.skills.map((skill, i) => (
                         <Box key={i}>
-                          <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", mb: 0.5 }}>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                              mb: 0.5,
+                            }}
+                          >
                             <Typography
                               component="span"
                               sx={{
@@ -237,7 +262,9 @@ export default function Skills() {
                               sx={{
                                 fontFamily: monoFontFamily,
                                 fontSize: "0.75rem",
-                                color: darkMode ? theme.palette.text.secondary : theme.palette.grey[600],
+                                color: darkMode
+                                  ? theme.palette.text.secondary
+                                  : theme.palette.grey[600],
                               }}
                             >
                               {skill.level}%
@@ -249,7 +276,9 @@ export default function Skills() {
                             sx={{
                               height: 6,
                               borderRadius: 1,
-                              backgroundColor: darkMode ? theme.palette.grey[700] : theme.palette.grey[200],
+                              backgroundColor: darkMode
+                                ? theme.palette.grey[700]
+                                : theme.palette.grey[200],
                               "& .MuiLinearProgress-bar": {
                                 backgroundColor: theme.palette.primary.main,
                               },
