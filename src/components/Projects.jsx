@@ -18,7 +18,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import { useTheme as useCustomTheme } from "../context/ThemeContext";
 import { monoFontFamily } from "../theme";
 
-const projectIcons = ["📚", "🌐", "🧵", "🎥", "📝", "✍️", "💬", "🏫"];
+const projectIcons = ["📚", "🌐", "🤖", "🧵", "🎥", "📝", "✍️", "💬", "🏫"];
 
 export default function Projects() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -61,6 +61,23 @@ export default function Projects() {
       ],
       githubLink: "https://github.com/hassan2314",
       demoLink: null,
+    },
+    {
+      title: "Acme Docs Copilot",
+      subtitle: "Multi-Agent RAG Knowledge Assistant",
+      description:
+        "Internal knowledge assistant with a FastAPI API and React UI. A Google ADK multi-agent team (coordinator, Q&A, summarizer) searches Postgres + pgvector and returns grounded answers with citations. Ingest is a chunk–embed–upsert pipeline; questions and summaries are routed to specialized agents.",
+      technologies: [
+        "FastAPI",
+        "Google ADK",
+        "PostgreSQL",
+        "pgvector",
+        "Gemini",
+        "React",
+        "Docker",
+      ],
+      githubLink: "https://github.com/hassan2314/co-pilot",
+      demoLink: "https://acme-copilot.netlify.app/",
     },
     {
       title: "Stitch and Style",
