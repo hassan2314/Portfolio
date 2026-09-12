@@ -24,6 +24,7 @@ export function getAppTheme(darkMode) {
         default: darkMode ? "#0d1117" : "#f6f8fa",
         paper: darkMode ? "#161b22" : "#ffffff",
       },
+      // Always define grey — `undefined` wipes MUI defaults and crashes light mode
       grey: darkMode
         ? {
             50: "#f0f6fc",
@@ -37,7 +38,18 @@ export function getAppTheme(darkMode) {
             800: "#161b22",
             900: "#0d1117",
           }
-        : undefined,
+        : {
+            50: "#f6f8fa",
+            100: "#eaeef2",
+            200: "#d0d7de",
+            300: "#afb8c1",
+            400: "#8c959f",
+            500: "#6e7781",
+            600: "#57606a",
+            700: "#424a53",
+            800: "#32383f",
+            900: "#24292f",
+          },
     },
     typography: {
       fontFamily: '"Plus Jakarta Sans", "Inter", sans-serif',
